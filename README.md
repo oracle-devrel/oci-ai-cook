@@ -11,15 +11,15 @@ Join us as we delve into the realm of web application development, AI, and cloud
     To Generate the API Keys using OCI Console:
 
   - Login into your OCI Account.
-   ![alt text](ak1.png)
+   ![alt text](images/ak1.png)
   - Click on the Profile icon at the top-right corner and select your Profile hyperlink.
-   ![alt text](ak2.png)
+   ![alt text](images/ak2.png)
   - Under Resources section at the bottom-left, select API Keys and then click Add API Key.
-   ![alt text](ak3.png)
+   ![alt text](images/ak3.png)
   - The Add API Key dialog is displayed. Select Generate API Key Pair to create a new key pair.
-  ![alt text](ak4.png)
+  ![alt text](images/ak4.png)
   - Click Download Private Key. A .pem file is saved to your local device. You do not need to download the public key and click Add button.
-  ![alt text](ak5.png)
+  ![alt text](images/ak5.png)
   
 
 
@@ -33,25 +33,25 @@ Identify the compartment you're currently working within. Navigate to 'Identity'
 # **3.Open Visual Builder**
 ## Configure access to REST APIs
 * Open Visual Builder and click on the "New" button. Provide a name and an ID, for example "AICook". Click on finish.
-![alt text](VBCS1.jpg)
+![alt text](images/VBCS1.jpg)
 
 * Now we are going to create a web application. Click on the first icon (web applications)
-    ![alt text](vbcs2.jpg)
+    ![alt text](images/vbcs2.jpg)
 * Now, click on the "+ Web Application" button  
-    ![alt text](vbcs3.jpg)  
+    ![alt text](images/vbcs3.jpg)  
 * Provide an Application name, for example "AICook"  
-    ![alt text](vbcs4.jpg)
+    ![alt text](images/vbcs4.jpg)
 * Let's do the REST Service definition. Click on "+ Service Connection" button
-    ![alt text](vbcs5.jpg)
+    ![alt text](images/vbcs5.jpg)
 * Choose source "Define by Endpoint"  
-    ![alt text](vbcs6.jpg)
+    ![alt text](images/vbcs6.jpg)
 * Provide the Vision Service API Endpoint, being xx-xxxxxx-x your region. For instance   https://vision.aiservice.xx-xxxxxx-x.oci.oraclecloud.com/20220125/actions/analyzeImage  
 Enter the Backend Name and select 'Oracle Cloud Infrastructure API Signature 1.0' from the Authentication dropdown menu. Then, click on the pencil icon to proceed 
-    ![alt text](vbcs7.jpg)
+    ![alt text](images/vbcs7.jpg)
 * Enter the data obtained in step 1 in the format ocid.tenancy/ocid.user/key_fingerprint. Paste the content of the Private key file that you downloaded in the first step, then click the 'Save' button. Afterward, proceed by clicking on the 'Next' button
-![alt text](vbcs8.jpg)
+![alt text](images/vbcs8.jpg)
 * Include a "service name" and choose "Method" POST and set "Action Hint" to "Get one"  
-  ![alt text](vbcs9.jpg)
+  ![alt text](images/vbcs9.jpg)
   
 * Click on the "Request" tab and paste this body, being "comparmentId" the ocid comparment value from step 2 and data value will include a base64 image  
 ~~~
@@ -251,22 +251,22 @@ So, add a new backend and set the URL
 ## Build the Web App
 
 - Remove the page-header to have more space  
-![alt text](vbcs10.jpg)
+![alt text](images/vbcs10.jpg)
 - In the components panel, search for "file picker" and drag it onto your canvas. To enhance its appearance, click on the grid layout and switch it to "Flex" mode (found in the properties panel). Set the "Direction" to "vertical" and justify it both "center" and "middle". Next, navigate to the "All" tab, type "style" into the search bar, and provide some CSS styling such as "margin-top:30px;" to achieve the desired spacing.
-![alt text](vbcs11.jpg)
+![alt text](images/vbcs11.jpg)
 - Now search a "table" component and drop it inside the "Flew row" and provide also a style margin.
-![alt text](vbcs12.jpg)
+![alt text](images/vbcs12.jpg)
 - Click on the "Types" tab and create a new type based on the vision service endpoint by clicking on "+ Type" and then selecting "From Endpoint". Utilize the wizard to select the vision service and choose the endpoint that was defined previously. This will help in defining and configuring the type based on the chosen vision service, streamlining the process for further integration and utilization within your application. 
 - Uncheck the "Create From Endpoint Root" and check the **object** "imageObjects" inside the vision service response and finish the wizard
-![alt text](vbcs13a.jpg)
+![alt text](images/vbcs13a.jpg)
 - Your type should look like this:
-![alt text](vbcs13.jpg)
+![alt text](images/vbcs13.jpg)
 - Now we are going to create three variables
     * "holdImage" of type "Any"
     * "recipe" of type "String"
     * "objects" of type "array" and array item type set to "imageObjects" (you have just created)
     * "objectsADP" where to you will choose "bind data to variable" -> "objects" and item "type" -> "imageObjects". "Key attributes" -> "@index" and "text filter attributes" -> "name"
-    ![alt text](vbcs14.jpg)
+    ![alt text](images/vbcs14.jpg)
 
 
 ## Let's create the Actions
@@ -431,16 +431,16 @@ define([
 
 - Now, let's configure the components we dropped to show the information.
 - Choose the table, click on "data" and bind the ADP variable selecting columns "confidence" and "name" 
-![alt text](vbcs15.jpg)
+![alt text](images/vbcs15.jpg)
 - Finally select the paragraph we had dragged and associate the variable "recipe"
-![alt text](vbcs16.jpg)
+![alt text](images/vbcs16.jpg)
 - Now it's time to your development, so click on the "preview" button (top right triangle) and you will be able to visualize your web app:
-![alt text](vbcs17.jpg)
+![alt text](images/vbcs17.jpg)
 - Drop your vegatables picture and let's wait for a few seconds to get the results
-![alt text](vbcs18.jpg)
+![alt text](images/vbcs18.jpg)
 
 
-* Sample image ![alt text](market2small-1.jpg)
+* Sample image ![alt text](images/market2small-1.jpg)
 
 
 ## I hope you have enjoyed and can cook many new recipes!
